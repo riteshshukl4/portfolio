@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import MagicButton from "./components/ui/MagicButton";
 
 const svgToDataUri = require("mini-svg-data-uri");
 
@@ -8,6 +9,7 @@ const {
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config = {
+  //
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -188,6 +190,21 @@ const config = {
       );
     },
   ],
+  MagicButton:{
+    "animation": {
+      shimmer: "shimmer 2s linear infinite"
+    },
+    "keyframes": {
+      shimmer: {
+        from: {
+          "backgroundPosition": "0 0"
+        },
+        to: {
+          "backgroundPosition": "-200% 0"
+        }
+      }
+    }
+  },
 } satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {
